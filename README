@@ -1,0 +1,51 @@
+# SP POTOLOK - Ceiling Services Web Application
+
+This is a full-stack web application for SP POTOLOK, a company that provides ceiling installation services and sells ceiling-related products.
+
+## Project Overview
+
+- **Frontend**: React with Redux for state management
+- **Backend**: Go (Golang) with Gin framework
+- **Database**: PostgreSQL
+- **Containerization**: Docker and Docker Compose
+
+## Features
+
+- Product catalog with different categories
+- Shopping cart functionality
+- Order form
+- Contact form
+- Interactive calculator for estimating costs
+- Responsive design for mobile and desktop
+
+## Architecture
+
+The application follows a client-server architecture:
+
+1. **Frontend**: React application that renders the UI and communicates with the backend API
+2. **Backend**: Go server that handles API requests, database operations, and sending emails
+3. **Database**: PostgreSQL database that stores product information and other data
+
+## Prerequisites
+
+- Docker and Docker Compose
+- Node.js and npm (for development)
+- Go 1.21+ (for development)
+
+## Running the Application
+
+### Using Docker (Recommended)
+
+1. Clone the repository
+2. Create a `.env` file in the root directory (see below for example)
+3. Run `docker-compose up -d`
+4. Access the application at http://localhost
+
+### For Development
+
+#### Backend:
+```bash
+cd server
+export $(cat ../.env | xargs)
+go mod download
+go run cmd/main.go

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-gradient {
+    @apply bg-gradient-to-r from-main to-secondary;
+}
+
+.hover-gradient {
+    @apply bg-gradient-to-r from-secondary to-main;
+}
+
+.absolute-center {
+    @apply left-0 right-0 absolute mx-0 pointer-events-none;
+}
+  

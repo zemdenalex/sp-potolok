@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    restart: always
+    image: postgres
+    ports:
+      - "5432:5432"  
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+
+  app:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server/templates:/app/templates
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_SSLMODE=${DB_SSLMODE}
+      - FROM_EMAIL=${FROM_EMAIL}
+      - FROM_PASSWORD=${FROM_PASSWORD}
+      - TO_EMAIL=${TO_EMAIL}
+      - SERVER_PORT=${SERVER_PORT}
+    ports:
+      - "8080:8080"  
+    depends_on:
+      - db
+  
+  site:
+    build:
+      context: ./site
+      dockerfile: Dockerfile
+    ports:
+      - "80:5173" 

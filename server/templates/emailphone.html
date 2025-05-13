@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запрос на обратный звонок</title>
+</head>
+<body>
+    <h2>Запрос на обратный звонок</h2>
+    <p><strong>Имя:</strong> {{.Name}}</p>
+    <p><strong>Телефон:</strong> {{.Phone}}</p>
+    {{ if .Message }}
+    <p><strong>Сообщение:</strong> {{.Message}}</p>
+    {{ end }}
+    <p>Пожалуйста, перезвоните мне.</p>
+</body>
+</html>

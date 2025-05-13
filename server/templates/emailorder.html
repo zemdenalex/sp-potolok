@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Детали заказа</title>
+        <style>
+            body { font-family: sans-serif; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid #ddd; padding: 8px; }
+            th { background-color: #f2f2f2; }
+        </style>
+    </head>
+
+    <body>
+        <h1>Заказ от <u>{{.Name}}</u></h1>
+        {{ if .Email }}
+        <p>Э.Почта: {{.Email}}</p>
+        {{ end }}
+        <p>Телефон: {{.Phone}}</p>
+        <p>Адрес: {{.Address}}</p>
+        <h2>Детали заказа:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Название товара</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Order }}
+                <tr>
+                    <td>{{.Name}}</td>
+                    <td>{{.Quantity}}</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </body>
+</html>
